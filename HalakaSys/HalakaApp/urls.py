@@ -27,6 +27,7 @@ urlpatterns = [
     path('password/', views.change_password, name='password'),
     path("thanks/", views.thanks, name="thanks"),
     path("thanks2/", views.thanks2, name="thanks2"),
+     path("update_server/", views.update, name="update"),
 ]
 
 
