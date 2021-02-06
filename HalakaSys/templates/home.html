@@ -1,0 +1,112 @@
+ {% load static %}
+ {% include 'javascript.html' %}
+ {% include 'head_css.html' %}
+  {% include 'navbar.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"  xml:lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>الجمعية الخيرية لتحفيظ القرآن الكريم بالخرمة (اقرأ)</title>
+ </head>
+
+<body id="page-top">
+
+<div class="container-fluid">
+
+   <header style=" background-image: url('/static/img/11.jpg') ;
+          height: 200px;
+          margin-top: 0px;
+          background-color: #e3f2fd;
+          background-position: center;">
+    <div class="container text-center">
+
+    </div>
+
+  </header>
+
+{% block content %}
+
+
+
+
+
+
+<div class="row" align="center">
+    <div class="col-sm-12 col-sm-offset-0">
+        <h1 style="font-family: 'Arabic Typesetting'">  منصة خاصة بالجمعية الخيرية لتحفيظ القرآن الكريم بالخرمة (اقرأ) </h1>
+
+ <b>
+  <h1 style="font-family: '-apple-system'"><a class="nav-link" href="{% url 'register' %}">التسجيل في الحلقة</a></h1>
+ </b>
+        <table class="table table-condensed" border="1" style="font-size:29px;" style="font-family: Baskerville;">
+
+        <tr class="warning" style="font-family: 'Arabic Typesetting'" >
+            <td style="background-color: #e3f2fd;>
+            <h1 style="font-family: 'Arabic Typesetting'">       التعريف بالجمعية : </h1>
+
+
+            </td>   </tr>
+
+       <tr class="active"> <td style="font-family: 'Arabic Typesetting'">&nbsp;&nbsp;
+الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة الخرمة (اقرأ) تأسست بتاريخ 1419/11/26هـ ترخيص رقم 8/2 نطاق عملها محافظة الخرمة والمراكز والقرى والهجر التابعة لها
+
+
+      <tr class="warning" >
+            <td style="background-color: #e3f2fd;>
+              <h1 style="font-family: 'Arabic Typesetting'">        رؤية الجمعية : </h1>
+               </td>  </tr>
+
+       <tr class="active">
+           <td style="font-family: 'Arabic Typesetting'">
+               &nbsp;&nbsp;جمعيتنا من أفضل خمس جمعيات لتحفيظ القرآن الكريم على مستوى منطقة مكة المكرمة
+
+             <tr class="warning" style="background-color: #e3f2fd;" >
+            <td style="background-color: #e3f2fd; >
+              <h1 style="font-family: 'Arabic Typesetting'">       رسالة الجمعية :</h1>
+
+           </td> </tr>
+
+       <tr class="active"> <td style="font-family: 'Arabic Typesetting'">&nbsp;&nbsp;
+التميز في تعليم القرآن الكريم لكافة فئات المجتمع , في بيئة عمل منظمة ومحفزة , مستقرة مالياً وبشرياً
+
+
+             </table>
+</div>
+</div>
+{% endblock %}
+
+
+  <!-- Footer -->
+  <footer style="background-color: #e3f2fd">
+ <div style="background-color: #e3f2fd">
+    <br class="container">
+      <p class="m-0 text-center text-black-50">حقوق النشر&copy; منصة خاصة بالجمعية الخيرية لتحفيظ القرآن الكريم بالخرمة (اقرأ) &copy 2021</p>
+
+    </div>
+<center>
+    <img src="{% static 'img/ok.png' %}" alt="footer logo">
+
+    <!-- /.container -->
+  </footer>
+
+</div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'js/scrolling-nav.js' %}"></script>
+
+</body>
+
+</html>

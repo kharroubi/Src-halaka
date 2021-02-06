@@ -1,0 +1,83 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+ <section id="about">
+    <div class="bg-light" align="center">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+
+  {% if request.user.is_authenticated %}
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col"> الطالب المسجلين </th>
+        <th scope="col">  رصد الدرجات </th>
+
+    </tr> <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </thead>
+     {% for degree2 in degrees2 %}
+  <tbody>
+
+   <td> <a href="/detailstud/{{ degree2.registration_number }}"><span class="glyphicon glyphicon-pencil" >{{degree2.firstname}}    {{degree2.surname}}    {{degree2.other_name}}</span></a></td>
+   <td>   <a href="/insertdegree2/{{ degree2.registration_number }}"><span class="glyphicon glyphicon-pencil" >رصد درجة بتارخ اليوم</span></a></td>
+
+        {% endfor %}
+</table>
+ <h3 style="font-family: 'Traditional Arabic' ">
+   {% for degree in degrees %}{% if forloop.first %}    درجات الطالب ليوم...
+          {{degree.attendance_date}} </h3>
+ {% endif %} {% endfor %}
+
+   <table class="table table-bordered">
+    {% block degree %}
+    <hr style="width:900px; color:firebrick; background-color:firebrick; height:3px;" />
+    <p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">الطالب</th>
+      <th scope="col">درجةالحفظ</th>
+      <th scope="col">درجةالمراجعة</th>
+      <th scope="col">تغيير</th>
+    </tr> <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </thead>
+       {% for degree in degrees %}
+  <tbody>
+           <td>{{ degree.stud_id }}</td>
+           <td>{{ degree.status }}</td>
+           <td>{{ degree.status2 }}</td>
+             <td>
+            <a href="/edit/{{ degree.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+        </td>
+ {% endfor %}
+</table>
+         <a class="nav-link" href="{% url 'insertdegree' %}">اضافة درجة </a>
+{% endblock %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+ {% endblock  %}

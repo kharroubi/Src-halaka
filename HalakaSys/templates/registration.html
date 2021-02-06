@@ -1,0 +1,40 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}التسجيل{% endblock %}
+
+{% block content %}
+ <section id="about">
+    <div class="bg-light" align="right">
+      <div class="row">
+        <div class="col-lg-3 mx-auto">
+
+
+</br>
+
+  {% if registered %}
+    <h1 style="font-family: 'Traditional Arabic' " align="center">  شكرا تم التسجيل في الحلقة بنجاح</h1>
+       <h1 style="font-family: 'Traditional Arabic' " align="center">
+      <a href="{% url 'register' %}"> تسجيل طالب آخر </a></h1>
+  {% else %}
+      <h1 style="font-family: 'Traditional Arabic' " align="center">التسجيل في الحلقة</h1>
+      <h3 style="font-family: 'Traditional Arabic' " >الرجاء تعبئة النموذج: </h3>
+      <form method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+        {{ user_form|crispy }}
+        {{ profile_form|crispy }}
+
+        <div class="row justify-content-center">
+        <div class="col-md-6">
+        <input type="submit" value="التسجيل " class="btn btn-info  btn-block">
+        </div>
+        </div>
+      </form>
+  {% endif %}
+
+    </div>
+      </div>
+    </div>
+  </section>
+
+{%endblock%}

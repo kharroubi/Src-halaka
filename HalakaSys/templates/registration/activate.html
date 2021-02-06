@@ -1,0 +1,24 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Activation Failure" %}{% endblock %}
+
+{% block content %}
+
+
+    <div class="container wow fadeInUp mt-5" >
+<div class="col-lg-3 col-md-10">
+<p>{% trans "Account activation failed." %}</p>
+</div></div>
+{% endblock %}
+
+
+{% comment %}
+**registration/activate.html**
+
+يستخدم في حالة فشل تنشيط الحساب. مع الإعداد الافتراضي ، يحتوي على السياق التالي:
+
+``activation_key``
+    مفتاح التفعيل المستخدم أثناء محاولة التفعيل.
+
+{% endcomment %}

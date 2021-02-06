@@ -1,0 +1,26 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+ <section id="about">
+    <div class="bg-light" align="center">
+      <div class="row">
+         <div class="col-lg-3 mx-auto" style="color: #5bc0de">
+
+         {% for degree in degrees2 %}{% if forloop.first %}  الطالب
+          <h2 style="font-family: 'Traditional Arabic' ">{{degree.stud_id}} </h2>
+
+            {% endif %} {% endfor %}
+
+
+<form method="post" class="post-form">
+    {% csrf_token %}
+   {{ form|crispy }}
+    <input type="submit" value="Submit" />
+</form>
+
+      </div>
+    </div>
+ </section>
+ {% endblock  %}

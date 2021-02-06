@@ -1,0 +1,49 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+ <section id="about">
+    <div class="bg-light" align="center">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 style="font-family: 'Traditional Arabic' "> الدرجات </h2>
+
+
+</br>
+
+  {% if request.user.is_authenticated %}
+
+
+{% for degree in mydegrees %}     {% if forloop.first %}
+      <h2 style="font-family: 'Traditional Arabic' "> مرحبا {{degree.stud_id}}! </h2>
+{% endif %}{% endfor %}
+
+
+    <hr style="width:900px; color:firebrick; background-color:firebrick; height:3px;" />
+
+    <p>
+<table class="table table-bordered" >
+  <thead>
+    <tr>
+      <th class="table-danger">#التاريخ</th>
+      <th class="table-danger">الطالب</th>
+      <th class="table-danger">درجةالحفظ</th>
+      <th class="table-danger">درجةالمراجعة</th>
+    </tr> <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </thead>
+ {% for degree in mydegrees %}
+  <tbody>
+       <tr>
+           <tr>
+           <td class="table-danger"> {{degree.attendance_date}}</td>
+           <td class="table-info"> {{degree.stud_id}}</td>
+           <td class="table-info">{{ degree.status }}</td>
+           #<td class="table-info">{{ degree.status2 }}</td>
+ {% endfor %}
+</table>
+ {% endif %}
+     </div></div></div></section>
+{% endblock %}
+

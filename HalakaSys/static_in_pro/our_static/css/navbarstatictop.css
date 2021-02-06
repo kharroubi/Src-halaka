@@ -1,0 +1,11 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #0C0C0C;
+}

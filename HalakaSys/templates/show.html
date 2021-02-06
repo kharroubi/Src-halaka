@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr > {% for degree in degrees %} {{ degree.attendance_id }} {% endfor %}   رصد الدرجات ليوم</tr>
+    <tr>
+        <th>التاريخ</th>
+        <th>الطالب </th>
+        <th>درجة الحفظ </th>
+        <th>درجة المراجعة </th>
+        <th>الصلاحيات</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for degree in degrees %}
+    <tr>
+        <td>{{ degree.attendance_id }}</td>
+        <td>{{ degree.student_id }}</td>
+        <td>{{ degree.status }}</td>
+        <td>{{ degree.status2 }}</td>
+        <td>
+            <a href="/edit/{{ degree.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/delete/{{ degree.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/adddegree" class="btn btn-primary">Add New Record</a></center>
+{% endblock %}

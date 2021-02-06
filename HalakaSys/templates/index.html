@@ -1,0 +1,86 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+ <section id="about">
+    <div class="bg-light" align="center">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 style="font-family: 'Traditional Arabic' "> الطلبة </h2>
+          <a class="nav-link" href="{% url 'form' %}"> رصد الدرجات </a>
+
+</br>
+
+  {% if request.user.is_authenticated %}
+   <table class="table table-bordered">
+    {% block degree %}
+
+    <hr style="width:900px; color:firebrick; background-color:firebrick; height:3px;" />
+
+    <p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#التاريخ</th>
+      <th scope="col">الطالب</th>
+      <th scope="col">درجةالحفظ</th>
+      <th scope="col">درجةالمراجعة</th>
+    </tr> <i class="fa fa-spinner fa-pulse fa-3x"></i>
+  </thead>
+       {% for degree in degrees %}
+  <tbody>
+
+       <tr>
+           <tr>
+
+
+           <td> {{degree.attendance_id}}</td>
+           <td>{{ degree.student_id }}</td>
+           #<td>{{ degree.status }}</td>
+           <td>{{ degree.status2 }} </td> </tr>
+
+ {% endfor %}
+</table>
+
+{% endblock %}
+{% endif %}
+
+
+
+
+ <table class="table table-hover">
+
+<form method="post" novalidate style="font-size: large">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field.errors }}
+    {{ hidden_field }}
+  {% endfor %}
+
+
+    {% for field in form.visible_fields %}
+      <tr>
+        <th class="table-info" >{{ field.label_tag }}</th>
+        <td  class="table-info">
+          {{ field.errors }}
+          {{ field }}
+          {{ field.help_text }}
+        </td>
+      </tr>
+    {% endfor %}
+
+
+  </table>
+
+  <button type="submit" >حفظ </button>
+</form>
+</div>
+      </div>
+    </div>
+  </section>
+
+ {% endblock  %}

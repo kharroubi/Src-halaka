@@ -1,0 +1,54 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+
+
+ <section id="about">
+    <div class="bg-light" align="center">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 style="font-family: 'Traditional Arabic' "> التسجيل في الحلقات</h2>
+
+</br>
+
+ <table class="table table-hover">
+
+<form method="post" novalidate style="font-size: large">
+  {% csrf_token %}
+
+  {{ form.non_field_errors }}
+
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field.errors }}
+    {{ hidden_field }}
+  {% endfor %}
+
+
+    {% for field in form.visible_fields %}
+      <tr>
+        <th class="table-info" >{{ field.label_tag }}</th>
+        <td  class="table-info">
+          {{ field.errors }}
+          {{ field }}
+          {{ field.help_text }}
+        </td>
+      </tr>
+    {% endfor %}
+
+
+  </table>
+
+  <button type="submit" >ارسال طلب التسجيل </button>
+</form>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+ {% endblock  %}

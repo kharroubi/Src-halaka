@@ -1,0 +1,71 @@
+
+
+
+{% load static %}
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; font-size: larger; font-family: 'fontawesome'" >
+
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-family: 'fantasy'" >(اقرأ) </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+       <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">الرئيسية <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">التسجيل في الحلقة</a>
+      </li>
+
+        <li class="nav-item">
+           <a class="nav-link" href="{% url 'contact' %}"> تواصل معنا</a>
+           </li>
+
+         {% if not request.user.is_authenticated and not "/accounts/login/" in request.get_full_path %}
+      <li class="nav-item">
+
+        <a class="nav-link" href="{% url 'login_user' %}"> تسجيل الدخول </a>
+      </li>
+         {% endif %}
+
+        {% if request.user.is_authenticated %}
+
+              <li class="nav-item">
+           <a class="nav-link" href="{% url 'mydegrees' %}">***درجاتي*** </a>
+
+           </li>
+           <li class="nav-item">
+           <a class="nav-link" href="{% url 'logout_user' %}">تسجيل الخروج</a>
+           </li>
+             <li class="nav-item">
+           <a class="nav-link" href="{% url 'password' %}"> تغيير كلمة المرور</a>
+           </li>
+
+             <li class="nav-item">
+           <a class="nav-link" ><p>مرحبا : {{ user.get_full_name   }}</p> </a>
+
+
+           {% for group_for in request.user.groups.all %}
+             {% if group_for.name == 'teacher' %}
+
+          <li class="nav-item">
+           <a class="nav-link" href="{% url 'adddegree' %}"> رصد الدرجات </a>
+           </li>
+
+           <li class="nav-item">
+           <a class="nav-link" href="http://127.0.0.1:8000/admin/"> الإدارة</a>
+           </li>
+            {% endif %}   {% endfor %}
+
+
+        {% endif %}
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </nav>

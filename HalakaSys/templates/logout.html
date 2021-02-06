@@ -1,0 +1,13 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<center>
+
+<div class="col-md-3">
+    <legend class="border-bottom pb-1 mb-3">لقد تم تسجيل خروجك بنجاح</legend>
+    <a href="{% url 'login_user' %}">تسجيل الدخول مرة أخرى</a>
+
+</div>
+{% endblock content %}

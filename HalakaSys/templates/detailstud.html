@@ -1,0 +1,39 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+ <section id="about">
+    <div class="bg-light" align="center">
+      <div class="row">
+        <div class="col-lg-3 mx-auto">
+        {% for degree in degreesdetaills %}{% if forloop.first %}  درجات الطالب
+          <h2 style="font-family: 'Traditional Arabic' ">{{degree.stud_id}} </h2>
+
+
+ {% endif %} {% endfor %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">التاريخ</th>
+      <th scope="col">درجةالحفظ</th>
+      <th scope="col">درجةالمراجعة</th>
+         <th scope="col">تغيير</th>
+    </tr>
+  </thead>
+       {% for degree in degreesdetaills %}
+  <tbody>
+           <td class="table-info"> {{degree.attendance_date}}</td>
+           <td class="table-info">{{ degree.status }}</td>
+           <<td class="table-info">{{ degree.status2 }}</td>
+           <td class="table-info"><a href="/edit/{{ degree.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a></td>
+
+     {% endfor %}
+</table>
+
+
+
+</div></div></div></section>
+{% endblock %}
+
